@@ -6,7 +6,7 @@
 1. 不是小河狸机器人创建的
 2. MR 应该被指派给了某个人，并且这个人不等于 MR 的创建人
 
-小明知道 Gatlab 提供了 API 可以查询 MR，这个工具应该能够实现，正在最近在学习 Elixir， 不如就使用 Elixir 写一个命令行工具，这个工具可以这样用：
+小明知道 Gitlab 提供了 API 可以查询 MR，这个工具应该能够实现，正在最近在学习 Elixir， 不如就使用 Elixir 写一个命令行工具，这个工具可以这样用：
 
 ```bash
 # 查询
@@ -32,4 +32,19 @@ total: 1023
 技能：
 * Elixir
 
-*尝试写个语言的版本*
+## 解题步骤
+
+1. 找到合适的 gitlab 的 api. [doc](https://docs.gitlab.com/ce/)。
+2. 需要是用 HTTP 请求， 所以需要一个 HTTP 请求的库。
+3. 返回的是 JSON, 所以需要一个处理 JSON 的库。
+4. 根据命令行参数调用 HTTP 请求和对应的 API。
+4. 根据条件筛选其中 `code review` 类型。
+5. 总结数据
+6. 输出
+
+### 1. 找 api
+[api_doc](https://docs.gitlab.com/ce/api/README.html) 其中可以找到：
+1. [merge_requests_api](https://docs.gitlab.com/ce/api/merge_requests.html)
+
+
+
