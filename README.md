@@ -1,6 +1,6 @@
 # git-tools 系列任务 3部分
 
-#### Part 1
+## Part 1
 小明有一天在代码库的时候，发现不知不觉之间，M站的 `Merge Request` 数量已经超过了 1000 了！小明想看看其中有多少是 `code review` 类型的。
 
 所谓的 `code review` 类型，应该满足一下条件：
