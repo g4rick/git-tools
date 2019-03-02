@@ -45,6 +45,10 @@ total: 1023
 ### 1. 找 api
 [api_doc](https://docs.gitlab.com/ce/api/README.html) 其中可以找到：
 1. [merge_requests_api](https://docs.gitlab.com/ce/api/merge_requests.html)
+这个api应该是我们需要的：[projects_merge_request](https://docs.gitlab.com/ce/api/merge_requests.html#list-project-merge-requests)
+
+
+
 
 
 
