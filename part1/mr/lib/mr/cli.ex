@@ -11,17 +11,17 @@ defmodule Mr.CLI do
   # 可能的参数 -h --help 返回 :help
   # 其他情况参数是 { }
   def parse_args(argv) do
-    IO.inspect argv
     parse =
       OptionParser.parse_head(argv,
         switches: [help: :boolean],
         aliases: [h: :help]
       )
-IO.inspect(parse)
+
     case parse do
-      { [help: true], _, _} ->
+      {[help: true], _, _} ->
         :help
-      {_, no_help_args, _} -> 
+
+      {_, no_help_args, _} ->
         IO.puts("Nothing")
     end
   end
