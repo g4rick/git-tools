@@ -3,7 +3,9 @@ defmodule Mr.CLI do
   接收命令行参数
   """
   def run(argv) do
-    parse_args(argv)
+    argv
+    |> parse_args
+    |> process
   end
 
   @doc """
@@ -23,11 +25,24 @@ defmodule Mr.CLI do
       {[:help, true], _, _} ->
         :help
 
-      {[], ["show" | tail], _} ->
-        IO.inspect(tail)
+      {[], ["show" | _] = show_list, _} ->
+        show_list
 
       _ ->
         :help
     end
+  end
+
+  def process(:help) do
+    IO.puts("""
+    usage: mr show --host <HOST> --repo <REPO>
+
+    explain:
+    host     the host merge request in.
+    repo     the repo merge request in.
+
+    example: 
+    mr show --host git.hlj.team --repo web/mobile-v3
+    """)
   end
 end
