@@ -14,4 +14,8 @@ defmodule CliTest do
     assert parse_args(["--help", "show", "--name"]) == :help
     assert parse_args(["--help", "-show", "-h", "value"]) == :help
   end
+
+  test "-h is not first options should not return :help" do
+    assert parse_args(["show", "-h", "--name", "value"]) != :help
+  end
 end
