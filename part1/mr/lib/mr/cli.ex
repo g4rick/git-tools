@@ -52,6 +52,6 @@ defmodule Mr.CLI do
   end
 
   def process({:show, host, repo}) do
-    Mr.GitlabMR.fetch(host, repo)
+    Mr.GitlabMr.fetch(host, repo)
   end
 end
