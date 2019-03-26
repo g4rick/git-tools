@@ -17,7 +17,7 @@ defmodule Mr.CLI do
   def parse_args(argv) do
     parse =
       OptionParser.parse_head(argv,
-        switches: [help: :boolean],
+        switches: [help: :boolean, host: :string, repo: :string],
         aliases: [h: :help]
       )
 
@@ -25,8 +25,11 @@ defmodule Mr.CLI do
       {[:help, true], _, _} ->
         :help
 
-      {[], ["show" | _] = show_list, _} ->
-        show_list
+      {[], ["show", "--host", host, "--repo", repo], _} ->
+        {:show, host, repo}
+
+      {[], ["show", "--repo", repo, "--host", host], _} ->
+        {:show, host, repo}
 
       _ ->
         :help
@@ -44,5 +47,11 @@ defmodule Mr.CLI do
     example: 
     mr show --host git.hlj.team --repo web/mobile-v3
     """)
+
+    System.halt(0)
+  end
+
+  def process({:show, host, repo}) do
+    Mr.GitlabMR.fetch(host, repo)
   end
 end
