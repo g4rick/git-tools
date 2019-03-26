@@ -20,11 +20,14 @@ defmodule Mr.CLI do
       )
 
     case parse do
-      {[help: true], _, _} ->
+      {[:help, true], _, _} ->
         :help
 
-      {_, no_help_args, _} ->
-        IO.puts("Nothing")
+      {[], ["show" | tail], _} ->
+        IO.inspect(tail)
+
+      _ ->
+        :help
     end
   end
 end
