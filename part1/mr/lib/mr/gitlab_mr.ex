@@ -1,7 +1,7 @@
 defmodule Mr.GitlabMr do
-  def fetch(host, repo) do
-    mr_url(host,repo)
-    |> HTTPoison.get!([{"PRIVATE-TOKEN", "d8e519578dfe2e28b86256d2d8f1cbeb"}])
+  def fetch(host, repo, token) do
+    mr_url(host, repo)
+    |> HTTPoison.get!([{"PRIVATE-TOKEN", token}])
     |> handle_response()
   end
 
